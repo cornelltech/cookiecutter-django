@@ -102,30 +102,11 @@ To view messages that are sent by your application, open your browser and go to 
 The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
 {% endif %}
 {% endif %}
-{% if cookiecutter.use_sentry_for_error_reporting == "y" %}
-
-Sentry
-^^^^^^
-
-Sentry is an error logging aggregator service. You can sign up for a free account at  https://sentry.io/signup/?code=cookiecutter  or download and host it yourself.
-The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
-
-You must set the DSN url in production.
-{% endif %}
 
 Deployment
 ----------
 
 The following details how to deploy this application.
-{% if cookiecutter.use_heroku.lower() == "y" %}
-
-Heroku
-^^^^^^
-
-See detailed `cookiecutter-django Heroku documentation`_.
-
-.. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html
-{% endif %}
 {% if cookiecutter.use_docker.lower() == "y" %}
 
 Docker
@@ -134,14 +115,4 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
-{% endif %}
-{% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' %}
-
-Elastic Beanstalk
-~~~~~~~~~~~~~~~~~~
-
-See detailed `cookiecutter-django Elastic Beanstalk documentation`_.
-
-.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-elastic-beanstalk.html
-
 {% endif %}
