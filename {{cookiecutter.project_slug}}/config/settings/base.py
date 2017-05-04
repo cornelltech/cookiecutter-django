@@ -109,7 +109,7 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}'),
+    'default': env.db('DATABASE_URL', default='postgres:///{{cookiecutter.project_slug}}'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -274,13 +274,6 @@ else:
     CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 ########## END CELERY
 {% endif %}
-
-{%- if cookiecutter.use_compressor == 'y'-%}
-# django-compressor
-# ------------------------------------------------------------------------------
-INSTALLED_APPS += ['compressor']
-STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
-{%- endif %}
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
